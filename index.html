@@ -18,7 +18,7 @@
       font-family: 'Segoe UI', sans-serif;
       background: var(--light);
       color: #333;
-      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Hero Section */
@@ -74,6 +74,14 @@
       padding: 80px 20px;
       max-width: 1200px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -106,6 +114,17 @@
     .card:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.5s;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
     }
 
     blockquote {
@@ -156,10 +175,12 @@
   <section id="projects">
     <h2>🚀 Current Projects</h2>
     <div class="card">
+      <img src="https://picsum.photos/800/400?random=1" alt="Cloud Notes Project">
       <h3>Secure Cloud Notes</h3>
       <p>Encrypted notes app using Python, LocalStack, NumPy, Pandas, and ML libraries.</p>
     </div>
     <div class="card">
+      <img src="https://picsum.photos/800/400?random=2" alt="Quantum Project">
       <h3>Quantum-Enhanced Cloud Analytics</h3>
       <p>Integrating Qiskit with ML and cloud emulation for portfolio-worthy outcomes.</p>
     </div>
@@ -168,6 +189,7 @@
   <section id="schedule">
     <h2>📅 Daily Timetable</h2>
     <div class="card">
+      <img src="https://picsum.photos/800/400?random=3" alt="Timetable">
       <p><strong>Morning:</strong> Coding practice & labs</p>
       <p><strong>Afternoon:</strong> College lectures + flashcards</p>
       <p><strong>Evening:</strong> Mini projects, revision, certification prep</p>
@@ -177,6 +199,7 @@
   <section id="wisdom">
     <h2>🌿 Wisdom</h2>
     <div class="card">
+      <img src="https://picsum.photos/800/400?random=4" alt="Wisdom Image">
       <blockquote>
         "You have the right to work, but never to the fruit of work. You should never engage in action for the sake of reward, nor should you long for inaction." — Bhagavad Gita 2.47
       </blockquote>
@@ -186,5 +209,21 @@
   <footer>
     <p>© 2026 Raijin's Hub | Built with curiosity and discipline</p>
   </footer>
+
+  <script>
+    // Reveal sections on scroll
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const boxTop = section.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          section.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
 </body>
 </html>
