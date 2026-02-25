@@ -27,39 +27,11 @@
       font-weight: bold;
       color: white;
       display: inline-block;
-      animation: spin 4s linear infinite;
+      animation: fadeLogo 3s infinite alternate;
     }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); color: var(--highlight);}
-      50% { transform: rotate(180deg); color: #fff;}
-      100% { transform: rotate(360deg); color: var(--highlight);}
-    }
-
-    /* Hero Section */
-    header {
-      height: 100vh;
-      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3.5em;
-      margin: 0;
-      animation: fadeInDown 2s ease;
-    }
-
-    header p {
-      font-size: 1.5em;
-      margin-top: 10px;
-      animation: fadeInUp 2s ease;
+    @keyframes fadeLogo {
+      from {opacity: 0.5; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1.1);}
     }
 
     nav {
@@ -72,7 +44,6 @@
       z-index: 1000;
       backdrop-filter: blur(6px);
     }
-
     nav a {
       color: white;
       margin: 0 20px;
@@ -80,12 +51,23 @@
       font-weight: bold;
       transition: color 0.3s;
     }
+    nav a:hover { color: var(--highlight); }
 
-    nav a:hover {
-      color: var(--highlight);
+    header {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
     }
+    header h1 { font-size: 3.5em; margin: 0; }
+    header p { font-size: 1.5em; margin-top: 10px; }
 
-    /* Search Bar */
     .search-bar {
       margin-top: 20px;
     }
@@ -103,26 +85,15 @@
       background: var(--highlight);
       color: white;
       cursor: pointer;
-      transition: background 0.3s;
-    }
-    .search-bar button:hover {
-      background: #0099cc;
     }
 
     section {
       padding: 80px 20px;
       max-width: 1200px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-      background: #fff; /* ensures visible background */
+      background: #fff;
       border-radius: 10px;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      margin-top: 40px;
     }
 
     h2 {
@@ -130,17 +101,6 @@
       font-size: 2.2em;
       margin-bottom: 40px;
       color: var(--secondary);
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--highlight);
-      margin: 10px auto 0;
-      border-radius: 2px;
     }
 
     .card {
@@ -151,22 +111,21 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       transition: transform 0.4s, box-shadow 0.4s;
     }
-
     .card:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
-
     .card img {
       width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
-      transition: transform 0.5s;
     }
 
-    .card img:hover {
-      transform: scale(1.05);
+    .modules {
+      margin-top: 15px;
+      padding-left: 20px;
     }
+    .modules li { margin: 5px 0; }
 
     .btn {
       display: inline-block;
@@ -176,11 +135,6 @@
       color: white;
       border-radius: 5px;
       text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #0099cc;
     }
 
     footer {
@@ -188,23 +142,13 @@
       color: white;
       text-align: center;
       padding: 20px;
+      margin-top: 40px;
     }
 
-    /* Animations */
     @keyframes gradientShift {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
-    }
-
-    @keyframes fadeInDown {
-      from {opacity: 0; transform: translateY(-30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -218,7 +162,7 @@
 
   <header>
     <h1>CS Learning Hub</h1>
-    <p>Free Courses • All Subjects • Computer Science</p>
+    <p>Free Courses • All CS Domains</p>
     <div class="search-bar">
       <input type="text" placeholder="Search courses...">
       <button>Search</button>
@@ -226,32 +170,60 @@
   </header>
 
   <section id="courses">
-    <h2>📚 Free Courses</h2>
+    <h2>📚 Featured Courses</h2>
+
     <div class="card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Python-logo-notext.svg" alt="Python">
       <h3>Programming Fundamentals</h3>
-      <p>Learn Python, Java, and C++ from scratch with interactive examples.</p>
+      <p>Learn Python, Java, and C++ from scratch.</p>
+      <ul class="modules">
+        <li>Week 1: Basics of Syntax</li>
+        <li>Week 2: Functions & OOP</li>
+        <li>Week 3: Projects</li>
+      </ul>
       <a href="#contact" class="btn">Enroll Now</a>
     </div>
+
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Structure_of_a_binary_tree.svg" alt="Data Structures">
-      <h3>Data Structures & Algorithms</h3>
-      <p>Master arrays, linked lists, trees, and graph algorithms with practice problems.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="AI">
+      <h3>Artificial Intelligence</h3>
+      <p>Explore ML, Deep Learning, and AI ethics.</p>
+      <ul class="modules">
+        <li>Week 1: ML Basics</li>
+        <li>Week 2: Neural Networks</li>
+        <li>Week 3: AI in Industry</li>
+      </ul>
       <a href="#contact" class="btn">Enroll Now</a>
     </div>
+
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="Cloud Computing">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="Cloud">
       <h3>Cloud Computing</h3>
-      <p>Explore AWS, Azure, and emulators like LocalStack for hands-on labs.</p>
+      <p>Hands-on with AWS, Azure, and Docker.</p>
+      <ul class="modules">
+        <li>Week 1: Cloud Basics</li>
+        <li>Week 2: Virtualization</li>
+        <li>Week 3: Deployments</li>
+      </ul>
       <a href="#contact" class="btn">Enroll Now</a>
     </div>
+
     <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="Machine Learning">
-      <h3>Machine Learning</h3>
-      <p>Understand ML concepts with NumPy, Pandas, scikit-learn, TensorFlow, and PyTorch.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Cybersecurity_image.png" alt="Cybersecurity">
+      <h3>Cybersecurity</h3>
+      <p>Learn threat detection, cryptography, and ethical hacking.</p>
+      <ul class="modules">
+        <li>Week 1: Security Basics</li>
+        <li>Week 2: Encryption</li>
+        <li>Week 3: Pen Testing</li>
+      </ul>
       <a href="#contact" class="btn">Enroll Now</a>
     </div>
   </section>
 
   <section id="about">
-   
+    <h2>🌐 About Us</h2>
+    <div class="card">
+      <p>CS Learning Hub is a free online education platform offering curated courses across all computer science domains. We collaborate with industry leaders to provide professional, practical knowledge.</p>
+    </div>
+  </section>
