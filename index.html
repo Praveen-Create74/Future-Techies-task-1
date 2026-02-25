@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raijin's Learning Hub</title>
+  <style>
+    :root {
+      --primary: #0f2027;
+      --secondary: #203a43;
+      --accent: #2c5364;
+      --highlight: #00c6ff;
+      --light: #f4f6f8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    header {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      margin: 0;
+      animation: fadeInDown 2s ease;
+    }
+
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+      animation: fadeInUp 2s ease;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15,32,39,0.9);
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--highlight);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 40px;
+      color: var(--secondary);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--highlight);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .card {
+      background: white;
+      margin: 20px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    blockquote {
+      font-style: italic;
+      color: var(--primary);
+      border-left: 5px solid var(--highlight);
+      padding-left: 20px;
+      font-size: 1.2em;
+    }
+
+    footer {
+      background: var(--secondary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Animations */
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#schedule">Timetable</a>
+    <a href="#wisdom">Wisdom</a>
+  </nav>
+
+  <header>
+    <h1>Raijin's Learning Hub</h1>
+    <p>Code • Cloud • Quantum • Wisdom</p>
+  </header>
+
+  <section id="projects">
+    <h2>🚀 Current Projects</h2>
+    <div class="card">
+      <h3>Secure Cloud Notes</h3>
+      <p>Encrypted notes app using Python, LocalStack, NumPy, Pandas, and ML libraries.</p>
+    </div>
+    <div class="card">
+      <h3>Quantum-Enhanced Cloud Analytics</h3>
+      <p>Integrating Qiskit with ML and cloud emulation for portfolio-worthy outcomes.</p>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <h2>📅 Daily Timetable</h2>
+    <div class="card">
+      <p><strong>Morning:</strong> Coding practice & labs</p>
+      <p><strong>Afternoon:</strong> College lectures + flashcards</p>
+      <p><strong>Evening:</strong> Mini projects, revision, certification prep</p>
+    </div>
+  </section>
+
+  <section id="wisdom">
+    <h2>🌿 Wisdom</h2>
+    <div class="card">
+      <blockquote>
+        "You have the right to work, but never to the fruit of work. You should never engage in action for the sake of reward, nor should you long for inaction." — Bhagavad Gita 2.47
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Raijin's Hub | Built with curiosity and discipline</p>
+  </footer>
+</body>
+</html>
