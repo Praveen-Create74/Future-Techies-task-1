@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raijin's Learning Hub</title>
+  <title>CS Learning Hub</title>
   <style>
     :root {
       --primary: #0f2027;
@@ -19,6 +19,20 @@
       background: var(--light);
       color: #333;
       scroll-behavior: smooth;
+    }
+
+    /* Logo Animation */
+    .logo {
+      font-size: 2em;
+      font-weight: bold;
+      color: white;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); color: var(--highlight);}
+      50% { transform: scale(1.2); color: #fff;}
+      100% { transform: scale(1); color: var(--highlight);}
     }
 
     /* Hero Section */
@@ -68,6 +82,30 @@
 
     nav a:hover {
       color: var(--highlight);
+    }
+
+    /* Search Bar */
+    .search-bar {
+      margin-top: 20px;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+    .search-bar button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 5px;
+      background: var(--highlight);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .search-bar button:hover {
+      background: #0099cc;
     }
 
     section {
@@ -127,12 +165,19 @@
       transform: scale(1.05);
     }
 
-    blockquote {
-      font-style: italic;
-      color: var(--primary);
-      border-left: 5px solid var(--highlight);
-      padding-left: 20px;
-      font-size: 1.2em;
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: var(--highlight);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #0099cc;
     }
 
     footer {
@@ -162,68 +207,61 @@
 </head>
 <body>
   <nav>
-    <a href="#projects">Projects</a>
-    <a href="#schedule">Timetable</a>
-    <a href="#wisdom">Wisdom</a>
+    <span class="logo">CS Hub</span>
+    <a href="#courses">Courses</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <header>
-    <h1>Raijin's Learning Hub</h1>
-    <p>Code • Cloud • Quantum • Wisdom</p>
+    <h1>CS Learning Hub</h1>
+    <p>Free Courses • All Subjects • Computer Science</p>
+    <div class="search-bar">
+      <input type="text" placeholder="Search courses...">
+      <button>Search</button>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>🚀 Current Projects</h2>
+  <section id="courses">
+    <h2>📚 Free Courses</h2>
     <div class="card">
-      <img src="https://picsum.photos/800/400?random=1" alt="Cloud Notes Project">
-      <h3>Secure Cloud Notes</h3>
-      <p>Encrypted notes app using Python, LocalStack, NumPy, Pandas, and ML libraries.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Python-logo-notext.svg" alt="Python">
+      <h3>Programming Fundamentals</h3>
+      <p>Learn Python, Java, and C++ from scratch with interactive examples.</p>
+      <a href="#contact" class="btn">Enroll Now</a>
     </div>
     <div class="card">
-      <img src="https://picsum.photos/800/400?random=2" alt="Quantum Project">
-      <h3>Quantum-Enhanced Cloud Analytics</h3>
-      <p>Integrating Qiskit with ML and cloud emulation for portfolio-worthy outcomes.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Structure_of_a_binary_tree.svg" alt="Data Structures">
+      <h3>Data Structures & Algorithms</h3>
+      <p>Master arrays, linked lists, trees, and graph algorithms with practice problems.</p>
+      <a href="#contact" class="btn">Enroll Now</a>
     </div>
-  </section>
-
-  <section id="schedule">
-    <h2>📅 Daily Timetable</h2>
     <div class="card">
-      <img src="https://picsum.photos/800/400?random=3" alt="Timetable">
-      <p><strong>Morning:</strong> Coding practice & labs</p>
-      <p><strong>Afternoon:</strong> College lectures + flashcards</p>
-      <p><strong>Evening:</strong> Mini projects, revision, certification prep</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="Cloud Computing">
+      <h3>Cloud Computing</h3>
+      <p>Explore AWS, Azure, and emulators like LocalStack for hands-on labs.</p>
+      <a href="#contact" class="btn">Enroll Now</a>
     </div>
-  </section>
-
-  <section id="wisdom">
-    <h2>🌿 Wisdom</h2>
     <div class="card">
-      <img src="https://picsum.photos/800/400?random=4" alt="Wisdom Image">
-      <blockquote>
-        "You have the right to work, but never to the fruit of work. You should never engage in action for the sake of reward, nor should you long for inaction." — Bhagavad Gita 2.47
-      </blockquote>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="Machine Learning">
+      <h3>Machine Learning</h3>
+      <p>Understand ML concepts with NumPy, Pandas, scikit-learn, TensorFlow, and PyTorch.</p>
+      <a href="#contact" class="btn">Enroll Now</a>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 Raijin's Hub | Built with curiosity and discipline</p>
-  </footer>
+  <section id="about">
+    <h2>🌐 About Us</h2>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Computer-icon.svg" alt="About">
+      <p>CS Learning Hub is a free online education platform offering curated courses across all computer science subjects. Our mission is to make learning accessible, dynamic, and engaging for everyone.</p>
+    </div>
+  </section>
 
-  <script>
-    // Reveal sections on scroll
-    const sections = document.querySelectorAll("section");
-    const revealOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const boxTop = section.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          section.classList.add("visible");
-        }
-      });
-    };
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-  </script>
-</body>
-</html>
+  <section id="contact">
+    <h2>📩 Contact</h2>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Contact">
+      <p>Email: support@cslearninghub.com</p>
+      <p>Join our community and start learning today!</p>
+      <a href="#courses" class
